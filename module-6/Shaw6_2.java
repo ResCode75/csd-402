@@ -21,38 +21,33 @@ public class Shaw6_2 {
 
         //Turn Fan 2 off 
         fan2.setStatus(false);
-        System.out.println("Fan #2 has been turned " + fan2.getStatus());
-        System.out.println("Speed: " + fan2.getSpeed());
+        System.out.println("Fan #2 has been turned " + fan1.getStatusString());
+        System.out.println("Speed: " + "(" + fan2.getSpeed() + ") " + fan2.getSpeedString());
         
         System.out.println();
 
         //Turn Fan2 back on again
         fan2.setStatus(true);
         fan2.setSpeed(2);
-        System.out.println("Fan #2 has been turned " + fan2.getStatus());
-        System.out.println("Speed: " + fan2.getSpeed());
+        System.out.println("Fan #2 has been turned " + fan1.getStatusString());
+        System.out.println("Speed: " + "(" + fan2.getSpeed() + ") " + fan2.getSpeedString());
 
         System.out.println();
 
         //turn fan 1 on
         fan1.setStatus(true);
         fan1.setSpeed(3);
-        System.out.println("Fan #1 has been turned " + fan1.getStatus());
-        System.out.println("Speed: " + fan1.getSpeed());
+        System.out.println("Fan #1 has been turned " + fan1.getStatusString());
+        System.out.println("Speed: " + "(" + fan1.getSpeed() + ") " + fan1.getSpeedString());
 
         System.out.println();
 
         //turn fan 1 back off 
         fan1.setStatus(false);
-        System.out.println("Fan #2 has been turned " + fan1.getStatus());
-        System.out.println("Speed: " + fan1.getSpeed());
+        System.out.println("Fan #1 has been turned " + fan1.getStatusString());
+        System.out.println("Speed: " + "(" + fan1.getSpeed() + ") " + fan1.getSpeedString());
         
         System.out.println();
-       
-
-
-
-
     }
 }
 
@@ -74,24 +69,29 @@ class Fan{
 
     }
 
-    Fan(int fanSpeed, boolean fanStatus, double fanRadius, String fanColor){
-        speed = fanSpeed;
-        status = fanStatus;
-        radius = fanRadius;
-        color = fanColor;
+    Fan(int speed, boolean status, double radius, String color){
+        this.speed = speed;
+        this.status = status;
+        this.radius = radius;
+        this.color = color;
     }
 
     public void setSpeed(int fanSpeed){
-        speed = fanSpeed;
+        this.speed = fanSpeed;
     }
-    public String getSpeed(){
-        if (speed == STOPPED || status == false){
+
+    public int getSpeed(){
+        return this.speed;
+    }
+
+    public String getSpeedString(){
+        if (this.speed == STOPPED || status == false){
             return "stopped";
         }
-        else if (speed == SLOW){
+        else if (this.speed == SLOW){
             return "slow";
         }
-        else if (speed == MEDIUM){
+        else if (this.speed == MEDIUM){
             return "medium";
         }
         else{
@@ -103,6 +103,7 @@ class Fan{
     public void setRadius(int radius){
         this.radius = radius;
     }
+
     public double getRadius(){
         return radius;
     }
@@ -116,16 +117,26 @@ class Fan{
     }
 
     public void setStatus(boolean status){
+
+        if (status == false){
+            this.speed = 0;
+        }
+
         this.status = status;
         
     }
-    public String getStatus(){
-        String message = "";
 
-        if (status == false){
+    public boolean getStatus(){
+        return this.status;
+    }
+
+    public String getStatusString(){
+        String message = " ";
+
+        if (this.status == false){
             message =  "off";
         }
-        if (status == true){
+        if (this.status == true){
              message =  "on";
         }
 
@@ -136,10 +147,6 @@ class Fan{
     public String toString(){
         return("\nStatus: " + this.getStatus() + "\n Speed: " + this.getSpeed() + "\n Radius: " + this.getRadius() + "\n color: " + this.getColor());
     }
-    
-
-    
-
 
 
 }
