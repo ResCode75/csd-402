@@ -1,3 +1,5 @@
+// Rachel Shaw - Module 8.2 Assignment - 2/13/2025
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,6 +40,7 @@ class RachelArrayListTest{
         return array;
     }
 
+    //method for finding the largest value in the array
     public static Integer max(ArrayList array){
         Integer largest = 0;
         if (array.isEmpty()){
