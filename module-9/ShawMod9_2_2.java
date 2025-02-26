@@ -1,4 +1,4 @@
-
+//Rachel Shaw - 9.2 part 2 - 2/14/2025
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class ShawMod9_2_2 {
             FileReader testFileRead = new FileReader("C:\\csd\\csd-402\\module-9\\data.file");
             //create scanner object for FileReader object 
             try (Scanner reader = new Scanner(testFileRead)) {
-                //read file
+                //read file and display it 
                 while (reader.hasNext()){
                     System.out.print(reader.next() + " ");
                 }
