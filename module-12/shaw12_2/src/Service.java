@@ -22,7 +22,7 @@ public class Service {
 
     // returns price of yearly service
     public String yearlyService(){
-        return ("--Yearly Service Charge for " + this.model + " --\n" + "Service charge = " + this.serviceCharge + "\n Total = ");
+        return ("--Yearly Service Charge for " + this.model + " --\n" + "Service charge = " + this.serviceCharge + "\n Total = " + this.serviceCharge);
     }
 
     //returns price of yearly service and an oil change
